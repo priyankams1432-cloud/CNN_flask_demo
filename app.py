@@ -8,8 +8,9 @@ def hello_world():
 
 @app.route("/<name>")
 def name(name):
-    name = name.capitalize()
-    return render_template('name.html',name=name,image=name+".png")
+    image = name.lower() + ".png"  # Use lowercase for image filename
+    display_name = name.capitalize()  # Capitalize for display
+    return render_template('name.html', name=display_name, image=image)
 
 @app.route("/abc")
 def abc():
